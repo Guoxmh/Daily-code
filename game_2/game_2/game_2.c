@@ -98,3 +98,28 @@ void play(char mine[ROWS][COLS], char look[ROWS][COLS], int x, int y)
 	}
 	else		look[x][y] = ret + '0';
 }
+
+
+
+
+int jude(char str[ROWS][COLS], int row, int  col)
+{
+	int i = 0;
+	int j = 0;
+	int count = 0;
+	for (i = 1; i <= row; i++)
+	{
+		for (j = 1; j <=  col; j++)
+		{
+			if (str[i][j] == '*')
+				count++;
+		}
+	}
+	if (count == 10)
+	{
+		return 1;
+	}
+	else
+		return 0;
+}
+

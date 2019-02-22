@@ -19,4 +19,6 @@ void Display(char str[ROWS][COLS], int row, int col);
 void set_mine(char board[ROWS][COLS], int row, int col);
 int check_mine(char str[ROWS][COLS], int x, int y);
 
+ int jude(char str[ROWS][COLS],int row, int  col);
+
 //void play(char mine[ROWS][COLS], char look[ROWS][COLS], int x, int y)

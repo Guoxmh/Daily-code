@@ -46,7 +46,7 @@ int game()
 	Display(mine, ROW, COL);
 	Display(show, ROW, COL);
 	
-	while ((ROW*COL - 10) > num)
+	while (1)
 	{
 		printf("ÇëÊäÈë×ø±ê");
 		scanf("%d%d", &x, &y);
@@ -66,7 +66,8 @@ int game()
 			return 0;
 			Display(mine, ROW, COL);
 		}
-		num++;
+		if (jude(show, ROW, COL) == 1)
+			break;
 	}
 	return 1;
 
