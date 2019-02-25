@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdlib.h>
 #include<stdio.h>
 #include<assert.h>
@@ -124,9 +124,9 @@
 
 
 //int main()
-//{    //×îºó»¹ĞèÒª×¢ÒâµÄÊÇ£¬ÎªÊ²Ã´º¯ÊıµÄ¡°c¡±²ÎÊıÊÇ int ÀàĞÍ£¬¶ø²»ÊÇ¡°char¡±ÀàĞÍÄØ£¿
-//    //ÆäÊµÔ­ÒòºÜ¼òµ¥£¬ÕâÀïÓÃµÄÊÇ×Ö·ûµÄ ASCII Âë£¨ÒòÎªÃ¿¸ö×Ö·û¶¼¶ÔÓ¦×ÅÒ»¸ö ASCII Âë£©
-//	//	£¬ÕâÑùÔÚ´«ÖµµÄÊ±ºò¼È¿ÉÒÔ´«¡°char¡±ÀàĞÍµÄÖµ£¬ÓÖ¿ÉÒÔ´«¡°int¡±ÀàĞÍµÄÖµ£¨0~127£©¡£
+//{    //æœ€åè¿˜éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œä¸ºä»€ä¹ˆå‡½æ•°çš„â€œcâ€å‚æ•°æ˜¯ int ç±»å‹ï¼Œè€Œä¸æ˜¯â€œcharâ€ç±»å‹å‘¢ï¼Ÿ
+//    //å…¶å®åŸå› å¾ˆç®€å•ï¼Œè¿™é‡Œç”¨çš„æ˜¯å­—ç¬¦çš„ ASCII ç ï¼ˆå› ä¸ºæ¯ä¸ªå­—ç¬¦éƒ½å¯¹åº”ç€ä¸€ä¸ª ASCII ç ï¼‰
+//	//	ï¼Œè¿™æ ·åœ¨ä¼ å€¼çš„æ—¶å€™æ—¢å¯ä»¥ä¼ â€œcharâ€ç±»å‹çš„å€¼ï¼Œåˆå¯ä»¥ä¼ â€œintâ€ç±»å‹çš„å€¼ï¼ˆ0~127ï¼‰ã€‚
 //	char arr[10] = "abcdrf";
 //	char *ret = strchr(arr, 'r');
 //	printf("%c\n", *ret);
@@ -137,7 +137,7 @@
 
 //char *my_strchr(char *str, int ch )
 //{
-//	////°üº¬ÁË*strºÍc¶¼Îª0µÄÇé¿ö
+//	////åŒ…å«äº†*strå’Œcéƒ½ä¸º0çš„æƒ…å†µ
 //	assert(str);
 //	while (*str && *str != (char)ch)
 //	{
@@ -172,36 +172,162 @@
 //	return 0;
 //}
 
-//´óÓÚ·µ»Ø1
-//µÈÓÚ·µ»Ø0
-//Ğ¡ÓÚ·µ»Ø-1
+//å¤§äºè¿”å›1
+//ç­‰äºè¿”å›0
+//å°äºè¿”å›-1
 
-int my_strcmp(char *str, char *str1)
+//int my_strcmp(char *str, char *str1)
+//{
+//	assert(str);
+//	assert(str1);
+//	while (*str == *str1 && *str != '\0')
+//	{
+//		str++;
+//		str1++;
+//
+//	}
+//	if (*str == '\0'&& *str1 == '\0')
+//		return 0;
+//	if (*str > *str1)
+//		return 1;
+//	else
+//		return -1;
+//
+//	
+//}
+//
+//int main()
+//{
+//	char arr[10] = "abcd";
+//	char arr1[10] = "abk";
+//	int ret = my_strcmp(arr, arr1);
+//	printf("%d\n", ret);
+//	system("pause");
+//	return 0;
+//}
+
+
+//1.sourceå’Œdestinæ‰€æŒ‡å†…å­˜åŒºåŸŸä¸èƒ½é‡å ï¼Œå‡½æ•°è¿”å›æŒ‡å‘destinçš„æŒ‡é’ˆã€‚
+//2.ä¸strcpyç›¸æ¯”ï¼Œmemcpyå¹¶ä¸æ˜¯é‡åˆ°'\0'å°±ç»“æŸï¼Œè€Œæ˜¯ä¸€å®šä¼šæ‹·è´å®Œnä¸ªå­—èŠ‚ã€‚
+//int main()
+//{
+//	char a[30];
+//	char b[20] = "acsdfvsdvc";
+//
+//
+//	memcpy(a, b, sizeof(b));
+//	printf("%s", a);
+//	system("pause");
+//	return 0;
+//}
+//void *my_memcpy(void *dest,const void *src, size_t n)
+//{
+//	assert(dest);
+//	assert(src);
+//	char *start = (char*)dest;
+//	char *start1 = (char*)src;
+//	for (int i = 0; i < n; i++)
+//	{
+//		*(start++)= *(start1++);
+//	}
+//	*start = '\0';
+//	return dest;
+//
+//}
+//
+//int main()
+//{
+//	char a[20] = { 0 };
+//	char b[10] = "sabinccd";
+//	my_memcpy(a, b, sizeof(b));//å¯ä»¥å†™å…¥éœ€è¦copyçš„å­—ç¬¦ä½æ•°ã€‚
+//	printf("%s\n", a);
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//void *memmove( void* dest, const void* src, size_t count );
+//int main()
+//{
+//
+//		char s[] = "Golden Global View";
+//
+//		memmove(s, s + 7, strlen(s) + 1 - 7);
+//
+//		printf("%s", s);
+//
+//		getchar();
+//
+//	system("pause");
+//	return 0;
+//}
+
+void *my_memmove(void *dest, const void *src, size_t n)
 {
-	assert(str);
-	assert(str1);
-	while (*str == *str1 && *str != '\0')
-	{
-		str++;
-		str1++;
-
-	}
-	if (*str == '\0'&& *str1 == '\0')
-		return 0;
-	if (*str > *str1)
-		return 1;
-	else
-		return -1;
-
+	assert(dest);
+	assert(src);
 	
+	if (dest >= src)
+	{
+		char *str = (char*)dest+n;
+		char *str1 = (char*)src+n;
+		while(n--)
+		{
+			*str-- = *str1--;
+		}
+	}
+	else
+	{
+		char *str = (char*)dest ;
+		char *str1 = (char*)src ;
+		while (n--)
+		{
+			*str++ = *str1++;
+		}
+	}
+	return dest;
 }
 
 int main()
 {
-	char arr[10] = "abcd";
-	char arr1[10] = "abk";
-	int ret = my_strcmp(arr, arr1);
-	printf("%d\n", ret);
-	system("pause");
+	char s[] = "Golden Global View";
+	my_memmove(s, s + 8, strlen(s) - 8 + 1);
+	printf("%s", s);
+    system("pause");
 	return 0;
 }
+
+//void *memmove(void *dest, const void*src, int count)
+//{
+//	char *pdest = (char*)dest;
+//	const char *psrc = (const char*)src;
+//	char *ret = dest;
+//	if ((pdest>psrc) && (pdest<psrc + count))
+//	{
+//		while (count--)
+//		{
+//			*(pdest + count) = *(psrc + count);
+//		}
+//	}
+//	else
+//	{
+//		while (count--)
+//		{
+//			*pdest++ = *psrc++;
+//		}
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int i = 0;
+//	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//	memmove(arr + 3, arr, 5 * sizeof(int)); 
+//	for (i = 0; i<sizeof(arr) / sizeof(arr[0]); i++)
+//	{
+//		printf("%d\n", arr[i]);
+//	}
+//	system("pause");
+//	return 0;
+//}
