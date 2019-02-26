@@ -78,7 +78,28 @@ void play(char mine[ROWS][COLS], char look[ROWS][COLS], int x, int y)
 	ret = check_mine(mine, x, y);
 	if (ret == 0)
 	{
+		int i = -1;
+		int j = -1;
 		look[x][y] = ' ';
+		for (i = -1; i < 2; i++)
+		{
+			for (j = -1; j < 2; j++)
+			{
+
+
+				if ((x - i)>0 && (y - i)>0 && (look[x + i][y + j]) == '*')
+					play(mine, look, x + i, y + j);
+				else
+
+				{
+					look[x][y] = ret + '\0';
+				}
+
+			}
+		}
+	}
+	
+	/*	look[x][y] = ' ';
 		if ((x - 1)>0 && (y - 1)>0 && (look[x - 1][y - 1] == '*'))
 			play(mine, look, x - 1, y - 1);
 		if ((x - 1)>0 && (y)>0 && (look[x - 1][y] == '*'))
@@ -97,9 +118,9 @@ void play(char mine[ROWS][COLS], char look[ROWS][COLS], int x, int y)
 			play(mine, look, x + 1, y + 1);
 	}
 	else		look[x][y] = ret + '0';
-}
+*/
 
-
+	}
 
 
 int jude(char str[ROWS][COLS], int row, int  col)
